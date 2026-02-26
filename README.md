@@ -1,22 +1,60 @@
-# Metalayer — Source Code
+# Metalayer — Production Source Code
 
-**The Intelligence Layer.** A production-ready React frontend implementing all four core Metalayer systems: Tone Engine, Memory Engine, Prompt Optimizer, and Model Routing.
+**The Intelligence Layer.** A complete, production-ready React application implementing all four Metalayer core systems with full backend integration support, Docker deployment, and CI/CD pipeline.
 
 ---
 
-## Quick Start
+## ⚡ Quick Start
+
+**Requirements:** Node.js v18+ and npm
 
 ```bash
-# 1. Install dependencies
+# 1. Clone the repository
+git clone https://github.com/cloudygetty-ai/metalayer.git
+cd metalayer
+
+# 2. Install dependencies
 npm install
 
-# 2. Start development server
+# 3. Start development server
 npm run dev
-# → Opens at http://localhost:3000
+# → Opens automatically at http://localhost:3000
 
-# 3. Build for production
+# 4. Build for production
 npm run build
 ```
+
+### Troubleshooting
+
+If you encounter issues, run the verification script:
+```bash
+./verify-setup.sh
+```
+
+**Common fixes:**
+- **Module not found:** Delete `node_modules` and run `npm install` again
+- **Port 3000 in use:** Kill the process or edit `vite.config.js` to use a different port
+- **Build fails:** Ensure you're using Node.js v18 or higher (`node -v`)
+
+---
+
+## 📦 What's Included
+
+### Core Systems (All Fully Implemented)
+- **Tone Engine** — 4 interactive sliders, 5 presets, live preview, custom profiles
+- **Memory Engine** — Full CRUD, 6 types, tags, search, semantic retrieval
+- **Prompt Optimizer** — Input → optimized output with tone + memory injection
+- **Model Routing** — Auto/manual modes, 5 models, custom rules, decision log
+
+### Production Features
+- ✅ Complete Zustand state management with persistence
+- ✅ API service layer ready for backend integration
+- ✅ Docker + docker-compose configuration
+- ✅ Nginx production config with gzip, caching, security headers
+- ✅ GitHub Actions CI/CD pipeline
+- ✅ ESLint configuration
+- ✅ Environment variable management
+- ✅ Comprehensive deployment documentation
 
 ---
 
