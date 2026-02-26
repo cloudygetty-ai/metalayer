@@ -1,0 +1,304 @@
+/* ── MODEL ROUTING ──────────────────────────────────────────────── */
+
+.model-routing {
+  padding: var(--s-4) var(--s-5);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.routing-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--s-3);
+  margin-bottom: var(--s-3);
+}
+
+.routing-title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+
+.routing-sub {
+  font-size: 14px;
+  color: var(--sub);
+  font-weight: 300;
+  max-width: 480px;
+  line-height: 1.6;
+}
+
+/* ── MODE TOGGLE ── */
+.routing-mode-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  padding-top: 6px;
+}
+
+.routing-mode-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.routing-mode-buttons {
+  display: flex;
+  background: var(--s2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  overflow: hidden;
+}
+
+.routing-mode-btn {
+  padding: 7px 18px;
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--sub);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all var(--t-fast);
+}
+
+.routing-mode-btn:hover { color: var(--text); }
+
+.routing-mode-btn.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ── MODE INFO ── */
+.routing-mode-info {
+  background: var(--s1);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--sub);
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: var(--s-3);
+}
+
+/* ── TABS ── */
+.routing-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: var(--s-3);
+}
+
+.routing-tab {
+  padding: 10px 20px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--sub);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--t-fast);
+  margin-bottom: -1px;
+}
+
+.routing-tab:hover { color: var(--text); }
+
+.routing-tab.active {
+  color: var(--accent-lt);
+  border-bottom-color: var(--accent-lt);
+}
+
+/* ── MODELS GRID ── */
+.routing-models-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+/* ── MODEL CARD ── */
+.model-card {
+  padding: 20px;
+}
+
+.model-card-default {
+  border-color: rgba(140,130,255,0.3);
+  background: rgba(106,94,240,0.04);
+}
+
+.model-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  gap: 8px;
+}
+
+.model-card-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.model-card-provider {
+  font-size: 11px;
+  color: var(--mute);
+  font-weight: 400;
+}
+
+.model-card-desc {
+  font-size: 12.5px;
+  color: var(--sub);
+  line-height: 1.6;
+  font-weight: 300;
+  margin-bottom: 12px;
+}
+
+.model-card-strengths {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 14px;
+}
+
+.model-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.model-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.model-meta-label {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--mute);
+  font-weight: 600;
+}
+
+.model-meta-val {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--sub);
+  text-transform: capitalize;
+}
+
+/* ── RULES ── */
+.routing-rules-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: var(--s-3);
+}
+
+.routing-rules-list {
+  background: var(--s1);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+
+.routing-rules-table-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr 80px 48px;
+  gap: 0;
+  padding: 10px 20px;
+  background: var(--s2);
+  border-bottom: 1px solid var(--border);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.routing-rule-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 80px 48px;
+  gap: 0;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+  transition: background var(--t-fast);
+}
+
+.routing-rule-row:hover { background: var(--s2); }
+.routing-rule-row:last-child { border-bottom: none; }
+
+.routing-rule-model {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.routing-rule-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ── LOG ── */
+.routing-log-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.routing-log-item {
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--border);
+  transition: background var(--t-fast);
+}
+
+.routing-log-item:hover { background: var(--s2); }
+.routing-log-item:last-child { border-bottom: none; }
+
+.routing-log-prompt {
+  font-size: 13px;
+  color: var(--text);
+  margin-bottom: 7px;
+  font-weight: 400;
+}
+
+.routing-log-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.routing-log-model {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--sky);
+}
+
+.routing-log-task {
+  font-size: 11px;
+  color: var(--mute);
+  background: var(--s3);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 7px;
+}
+
+.routing-log-time {
+  font-size: 10.5px;
+  color: var(--mute);
+  margin-left: auto;
+  font-family: var(--font-mono);
+}

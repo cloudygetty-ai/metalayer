@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  # Frontend (React + Vite)
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    environment:
+      - VITE_API_URL=http://backend:8000
+    depends_on:
+      - backend
+    networks:
+      - metalayer-network
+
+  # Backend API (placeholder - replace with your backend)
+  backend:
+    image: node:18-alpine
+    working_dir: /app
+    command: sh -c "npm install && npm run dev"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    environment:
+      - NODE_ENV=development
+      - PORT=8000
+    networks:
+      - metalayer-network
+
+  # Database (PostgreSQL)
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: metalayer
+      POSTGRES_USER: metalayer
+      POSTGRES_PASSWORD: metalayer_dev_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - metalayer-network
+
+  # Redis (for caching and sessions)
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - metalayer-network
+
+networks:
+  metalayer-network:
+    driver: bridge
+
+volumes:
+  postgres_data:

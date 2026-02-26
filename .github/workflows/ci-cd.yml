@@ -1,0 +1,49 @@
+name: Metalayer CI/CD
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run linter
+        run: npm run lint
+      
+      - name: Build
+        run: npm run build
+        env:
+          VITE_API_URL: ${{ secrets.API_URL }}
+
+  build-and-deploy:
+    needs: lint-and-test
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Build Docker image
+        run: docker build -t metalayer-frontend:${{ github.sha }} .
+      
+      - name: Push to registry
+        run: |
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+          docker tag metalayer-frontend:${{ github.sha }} ${{ secrets.DOCKER_REGISTRY }}/metalayer-frontend:latest
+          docker push ${{ secrets.DOCKER_REGISTRY }}/metalayer-frontend:latest
+      
+      - name: Deploy notification
+        run: echo "Deployment ready for metalayer-frontend:${{ github.sha }}"
