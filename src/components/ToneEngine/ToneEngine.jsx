@@ -119,7 +119,7 @@ function LivePreview({ directness, warmth, formality, conciseness }) {
     if (warmth > 60 && directness > 60)
       return "Hi Sarah — could you get the Q3 report to me by Thursday? Let me know if you need anything from my end to make that happen."
     if (formality > 75 && warmth < 50)
-      return 'Please submit the Q3 performance report prior to Thursday's executive review. Ensure all financial metrics are verified.'
+      return "Please submit the Q3 performance report prior to Thursday's executive review. Ensure all financial metrics are verified."
     if (conciseness < 35)
       return 'I wanted to follow up regarding the quarterly performance report for Q3 that we had discussed in our previous meeting. If it would be possible, I would greatly appreciate receiving the completed version ahead of the Thursday review session.'
     return 'The Q3 report should be ready by Thursday. Let me know if anything needs alignment before then.'
